@@ -1,0 +1,378 @@
+/* --------------- GERAL --------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+p, del {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #212325;
+    font-size: 14px;
+}
+
+/* --------------- GRID --------------- */
+
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.container::after, .container::before {
+    content: " ";
+    display: table;
+}
+
+.container::after {
+    clear: both;
+}
+
+/* --------------- HEADER --------------- */
+
+.header_ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px 0 20px;
+    border-top: solid 20px #212325;
+    border-bottom: solid 1px #212325;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+}
+
+#header {
+    box-sizing: border-box;
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+#menu a {
+    display: block;
+    padding: 5px 30px;
+    margin: 0 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #212325;
+    transition: all .5s ease;
+}
+
+#menu a:hover {
+    color: #fff;
+    background-color: #212325;
+}
+
+#menu a.menu-select {
+    color: #fff;
+    background-color: #212325;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+/* --------------- COLEÇÃO --------------- */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.titulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #212325;
+}
+
+.subtitulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 60px 0 40px 0;
+    color: #212325;
+}
+
+.subtitulo::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: #212325;
+    margin: 8px auto;
+}
+
+.produto {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.lista-prod {
+    margin: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 30px #212325;
+}
+
+.lista-prod h3 {
+    padding-bottom: 20px;
+}
+
+.lista-prod p {
+    padding-top: 10px;
+}
+
+.lista-prod h3::after {
+    content: "";
+    display: block;
+    width: 180px;
+    height: 1px;
+    background: #ddd;
+    margin: 0 auto;
+}
+
+h3 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: #484B4D;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.info, del {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #212325;
+}
+
+/* --------------- INFO --------------- */
+
+.mais-info {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.mais-info li {
+    padding: 0 30px;
+}
+
+/* --------------- FOOTER --------------- */
+
+.footer {
+    height: 100px;
+    background-color: #212325;
+}
+
+.footer p {
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* --------------- RESPONSIVE --------------- */
+
+/* TABLETS */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .titulo {
+        font-size: 2.9rem;
+    }
+    
+    .subtitulo {
+        font-size: 1.9rem;
+    }
+    
+    .subtitulo::after {
+        height: 1px;
+    }
+
+    .produto ul li {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .lista-prod {
+        text-align: center;
+    }
+
+    .lista-prod a img {
+        width: 80%;        
+    }
+
+    .lista-prod h3 {
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .info {
+        padding: 10px 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    #menu {
+        text-align: center;
+        display: block ;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        right: 0px;
+        background: #fff;
+        z-index: 1000;
+        height: 0px;
+        transition: .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: hidden;
+    }
+
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(21, 23, 25, 0.05);
+        text-transform: uppercase;
+    }
+
+    #btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+        color: #212325;
+    }
+
+    #burger {
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    #burger::after, #burger::before {
+        content: " ";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #burger {
+        border-top-color: transparent;
+    }
+
+    #nav.active #burger::before {
+        transform: rotate(135deg);
+    }
+
+    #nav.active #burger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    /* COLEÇÃO */
+
+    .titulo {
+        font-size: 35px;
+        color: #212325;
+    }
+
+    .subtitulo {
+        font-size: 25px;
+    }
+
+    .subtitulo::after {
+        width: 120px;
+        height: 1px;
+        margin: 3px auto;
+    }
+
+    .produto {
+        display: grid;
+    }
+
+    .lista-prod h3 {
+        padding-bottom: 10px;
+    }
+
+    .lista-prod h3::after {
+        content: "";
+        display: block;
+        width: 180px;
+        height: 1px;
+        background: #ddd;
+        margin: 0 auto;
+    }
+
+
+
+    /* MAIS INFORMAÇÕES */
+
+    .mais-info {
+        display: grid;
+    }
+
+    .list-info h3::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 1px;
+        background: #212325;
+        margin: 0 auto;
+    }
+
+    /* FOOTER */
+
+    .footer p {
+        font-size: 0.7rem;
+    }
+}
